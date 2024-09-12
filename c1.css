@@ -1,0 +1,456 @@
+body {
+  background-color: #f6f6f6;
+  font-family: "Tajawal", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  display: flex;
+  background-color: #34374c;
+  inline-size: 100%;
+  block-size: 60px;
+  padding-block-start: 20px;
+}
+
+.navbar a {
+  margin-inline-end: 60px; /* المسافة بين الروابط، يمكن تعديل القيمة حسب الحاجة */
+}
+
+#dropbtn1 {
+  margin-inline-end: 60px; /* المسافة بين الروابط، يمكن تعديل القيمة حسب الحاجة */
+}
+
+.navbar a,
+.dropdown .dropbtn {
+  float: inline-start;
+  display: block;
+  color: #f6f6f6;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+  transition: 0.3s;
+  margin-inline-start: 100px;
+}
+
+.navbar a:hover,
+.dropdown:hover .dropbtn {
+  background-color: #ee2b47;
+  color: #f6f6f6;
+}
+
+.dropdown {
+  float: inline-start; /* محاذاة العنصر إلى البداية الأفقية */
+  position: relative; /* تعيين موضع العنصر إلى النسبي */
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: #f6f6f6;
+  background-color: inherit;
+  margin: 0;
+}
+
+/* محتوى القائمة المنسدلة */
+.dropdown-content {
+  display: none; /* إخفاء القائمة المنسدلة بشكل افتراضي */
+  position: absolute; /* تعيين موضع القائمة كـ مطلق */
+  background-color: #f6f6f6; /* لون خلفية القائمة المنسدلة */
+  min-inline-size: 160px; /* عرض القائمة المنسدلة */
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2); /* إضافة ظل للقائمة */
+  z-index: 1; /* تحديد مستوى التراكب للقائمة */
+  inset-block-start: 60%; /* وضع القائمة مباشرة تحت العنصر الأساسي */
+  inset-inline-start: 0; /* محاذاة القائمة إلى اليسار من العنصر الأساسي */
+}
+
+/* روابط القائمة المنسدلة */
+.dropdown-content a {
+  float: none; /* إزالة محاذاة العناصر */
+  color: #2c2e3e; /* لون النص */
+  padding: 12px 16px; /* التباعد حول النص داخل العناصر */
+  text-decoration: none; /* إزالة التزيين الافتراضي للنصوص */
+  display: block; /* جعل العناصر كتلة لتكون قابلة للتغيير في الحجم */
+  text-align: end; /* محاذاة النص إلى النهاية */
+}
+
+.dropdown-content a:hover {
+  background-color: #ee2b47;
+  color: #f6f6f6;
+}
+
+/* عرض القائمة عند التحويم */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* إعداد زر القائمة المتجاوب */
+.navbar .icon {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .navbar a,
+  .dropdown .dropbtn {
+    float: none;
+    display: none;
+  }
+  .navbar a.icon {
+    float: inline-end;
+    display: block;
+  }
+  .navbar.responsive {
+    position: relative;
+  }
+  .navbar.responsive .icon {
+    position: absolute;
+    inset-inline-end: 0;
+    inset-block-start: 0;
+  }
+  .navbar.responsive a,
+  .navbar.responsive .dropdown {
+    float: none;
+    display: block;
+    text-align: end;
+  }
+  .navbar.responsive .dropdown-content {
+    position: relative;
+  }
+  .navbar.responsive .dropdown .dropbtn {
+    display: block;
+    inline-size: 100%;
+    text-align: end;
+  }
+}
+
+.navbar img {
+  position: absolute; /* لجعل الصورة في موضع محدد */
+  margin-block-start: 5px; /* الهامش العلوي */
+  margin-inline-start: 1210px; /* الهامش من اليسار */
+  inline-size: 70px; /* عرض الصورة */
+  block-size: 70px; /* ارتفاع الصورة */
+  z-index: 1000; /* قيمة عالية لـ z-index لضمان ظهور الصورة فوق كل العناصر */
+}
+
+/* section */
+
+.image-container {
+  position: relative; /* لتحديد موضع العناصر المطلقة بداخله */
+  display: inline-block; /* لجعل الحاوية بنفس حجم الصورة */
+}
+
+.blur-image {
+  display: block; /* لإزالة المسافات الفارغة أسفل الصورة */
+  max-inline-size: 100%; /* لتعديل حجم الصورة إلى عرض الحاوية */
+  block-size: auto; /* للحفاظ على نسبة العرض إلى الارتفاع */
+  filter: blur(5px); /* تطبيق تأثير الضبابية */
+}
+
+.text-overlay {
+  position: absolute; /* لجعل العناصر تظهر فوق الصورة */
+  inset-block-start: 30%; /* وضعها في منتصف المسافة العمودية */
+  inset-inline-start: 50%; /* وضعها في منتصف المسافة الأفقية */
+  transform: translate(50%, -50%); /* ضبط الإزاحة لجعلها في المنتصف تمامًا */
+  text-align: center; /* لجعل النص في المركز */
+  color: #f6f6f6; /* تغيير لون النص ليظهر بشكل أوضح */
+}
+h1 {
+  font-size: 60px;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.text-overlay h1,
+.text-overlay span {
+  margin-block-start: 10; /* إزالة الهوامش الافتراضية */
+  padding: 10px; /* إضافة تباعد حول النص */
+  background-color: rgba(0, 0, 0, 0.5); /* خلفية شفافة لتوضيح النص */
+  border-radius: 10px; /* زوايا دائرية للخلفية */
+}
+
+/* **********************************************************  */
+
+#ar11 {
+  display: flex;
+  flex-wrap: wrap;
+  inline-size: 95%;
+  block-size: 500px;
+  margin-block-start: 30px;
+  margin-inline-start: 10px;
+  color: #34374c;
+}
+
+#ar11 img {
+  display: block;
+  inline-size: 500px;
+  block-size: 400px;
+  margin-inline-start: 30px;
+  margin-block-start: 30px;
+  border-radius: 10px;
+}
+
+.text-container {
+  display: flex;
+  flex-direction: column; /* ترتيب العناصر بشكل عمودي */
+  align-items: flex-start; /* محاذاة النص إلى اليسار */
+}
+
+.text-container h2 {
+  font-size: 40px;
+  margin: 100px 20px; /* إزالة الهوامش الافتراضية */
+  padding: 0; /* إزالة التباعد الداخلي الافتراضي */
+}
+
+.text-container span {
+  margin: 40px;
+  font-size: 29px;
+  block-size: 50px;
+  font-family: "Times New Roman", Times, serif;
+  margin-block-start: 10px; /* تباعد بين <h2> و<span> */
+}
+
+/*
+#ar11 h2{
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 30px;
+  background-color: aqua;
+  margin-inline-start: 70px;
+  margin-block-start: 100px;
+  block-size: 10px;
+  font-family: 'Times New Roman', Times, serif;
+  color: #34374C; 
+
+}
+
+#ar11 span{
+ inline-size: 400px;
+ block-size: 50px;
+ background-color: chartreuse;
+  font-size: 20px;
+  font-family: 'Times New Roman', Times, serif;
+
+}
+*/
+/* CSS ليتوافق مع Swiper */ /* تعيين الخلفية والهوامش العامة */
+
+/* styles.css */
+
+/* تنسيق الحاوية العامة */
+
+.container {
+  inline-size: 80%;
+  margin: auto;
+  overflow: hidden;
+  padding: 20px;
+  background-color: #f6f6f6;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* تنسيق قائمة العناصر */
+.list ul {
+  list-style-type: none;
+  padding: 0;
+  text-align: center;
+}
+
+.list ul li {
+  display: inline;
+  margin-inline-end: 10px;
+}
+
+.list ul li a {
+  text-decoration: none;
+  color: #2c2e3e;
+  padding: 10px 20px;
+  background-color: #f6f6f6;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.list ul li a:hover {
+  background-color: #ee2b47;
+  color: #f6f6f6;
+}
+
+/* تنسيق السلايدر */
+.slider {
+  position: relative;
+  overflow: hidden;
+  margin-block-start: 20px;
+}
+
+.swiper-container {
+  inline-size: 100%;
+  block-size: 400px;
+}
+
+.swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.swiper-slide img {
+  inline-size: 80%;
+  block-size: 400px;
+  margin-inline-start: 80px;
+  border-radius: 10px;
+}
+
+.text {
+  position: absolute;
+  margin-inline-start: 80px;
+  inline-size: 60%;
+  block-size: 100px;
+  inset-block-end: 20px;
+  inset-inline-start: 20px;
+  color: #f6f6f6;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.text h2,
+.text p {
+  margin: 0;
+}
+
+.text a {
+  color: #ee2b47;
+  text-decoration: none;
+}
+
+/*                     *************************************************************        */
+.dd {
+  inline-size: 90%;
+  block-size: 500px;
+  margin: 40px;
+  padding: 0px;
+}
+
+.zoon1 {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.zoon1 img {
+  inline-size: 500px;
+  block-size: 350px;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.zoon2 {
+  inline-size: 600px;
+  block-size: 300px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  inset-block-start: 100px;
+  inset-inline-start: 80px;
+  border-radius: 10px;
+  font-family: "Times New Roman", Times, serif;
+}
+
+/* تحسين تنسيق النصوص */
+.zoon2 p {
+  font-size: 40px; /* حجم الخط المناسب للعناوين */
+  color: #2c2e3e; /* لون النص */
+  font-weight: bold;
+  font-family: "Arial", sans-serif; /* نوع الخط */
+  margin: 20px 0 30px 0; /* تعديل الهوامش */
+}
+
+.zoon2 span {
+  font-size: 20px;
+  margin: 10px 50px 0 0;
+  color: #34374c; /* لون النص */
+  font-family: "Verdana", sans-serif; /* نوع الخط */
+  font-style: italic; /* مائل */
+  text-transform: uppercase; /* أحرف كبيرة */
+  padding-block-end: 5px; /* حشو أسفل النص */
+  display: inline-block; /* لضمان التباعد */
+}
+
+.zoon2 a {
+  margin: 80px 80px 0 0;
+  color: #007bff; /* لون الرابط */
+  text-decoration: none; /* إزالة التسطير */
+  font-family: "Arial", sans-serif; /* نوع الخط */
+  font-size: 20px;
+}
+
+.zoon2 a:hover {
+  text-decoration: underline; /* تسطير الرابط عند التمرير */
+  color: #ee2b47;
+}
+
+/*                   allv                   *********************************0*/
+
+#allv {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #2c2e3e;
+  color: #f6f6f6;
+  block-size: 400px ;
+  
+}
+
+#texx1 h1 {
+  text-align: center;
+  inline-size: 290px;
+  margin-inline-start:20px  ;
+  margin-block-start:50px ;
+  font-size: 40px;
+  font-weight: bold;
+  color: #f6f6f6;
+ 
+  
+}
+
+
+#texx2 ul {
+  display: flex; /* تجعل العناصر في صف واحد */
+  gap: 40px; /* تباعد بين الروابط */
+  margin: 60px 10px 0px 0px ;
+ font-size: 20px ;
+}
+
+#texx2 ul li{
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+#texx2 a {
+  color:#f6f6f6;
+  text-decoration: none;
+}
+
+
+/* --------------------------  */ 
+
+#texx3 {
+  display: flex;
+  gap: 30px;
+  margin: 50px 120px 0px 0px ;
+
+}
+
+#texx3 a {
+   
+}
+
+
+#texx3 img {
+  inline-size: 50px;
+  block-size: 50px;
+  display: inline;
+  flex-direction: row;
+}
+
+#texx4 {
+}
